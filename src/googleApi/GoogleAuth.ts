@@ -186,7 +186,7 @@ export async function StartLoginGoogleMobile(): Promise<void> {
 	+ `&state=${authSession.state}`
 	+ `&code_challenge=${authSession.challenge}`
 	+ `&code_challenge_method=S256`
-	+ `&scope=email%20profile%20https://www.googleapis.com/auth/calendar`;
+	+ `&scope=email%20profile%20https://www.googleapis.com/auth/calendar%20https://www.googleapis.com/auth/gmail.readonly`;
 
 	window.open(authUrl);
 }
@@ -250,7 +250,7 @@ export async function LoginGoogle(): Promise<void> {
 	+ `&state=${authSession.state}`
 	+ `&code_challenge=${authSession.challenge}`
 	+ `&code_challenge_method=S256`
-	+ `&scope=email%20profile%20https://www.googleapis.com/auth/calendar`;
+	+ `&scope=email%20profile%20https://www.googleapis.com/auth/calendar%20https://www.googleapis.com/auth/gmail.readonly`;
 	
 
 	// Make sure no server is running before starting a new one

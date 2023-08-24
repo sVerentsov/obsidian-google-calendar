@@ -12,6 +12,7 @@ import MonthView from "../svelte/views/MonthView.svelte";
 import ScheduleView from "../svelte/views/ScheduleView.svelte"
 import TimeLineView from "../svelte/views/TimeLineView.svelte"
 import YearView from "../svelte/views/YearView.svelte";
+import MailView from "../svelte/views/MailView.svelte"
 import { SvelteBuilder } from "../svelte/SvelteBuilder";
 
 /**
@@ -127,6 +128,12 @@ export async function checkEditorForCodeBlocks(
 	} else if (codeBlockOptions.type == "year") {
 		ctx.addChild(
 			new SvelteBuilder(YearView, el, {
+				codeBlockOptions: codeBlockOptions,
+			})
+		);
+	} else if (codeBlockOptions.type == "mail") {
+		ctx.addChild(
+			new SvelteBuilder(MailView, el, {
 				codeBlockOptions: codeBlockOptions,
 			})
 		);

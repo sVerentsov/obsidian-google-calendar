@@ -321,9 +321,10 @@ export interface IGoogleCalendarPluginApi {
     deleteEvent: (event:GoogleEvent, deleteAll:boolean) => Promise<boolean>,
     updateEvent: (event:GoogleEvent, updateSingle: boolean) => Promise<GoogleEvent>,
 	createEventNote: (event:GoogleEvent, eventDirectory: string, templatePath: string) => Promise<TFile>,
+	listMail: (inboxId: number) => Promise<GoogleMessage[]>
 }
 export interface CodeBlockOptions {
-	type?: "web" | "month" | "day" | "schedule" | "week" | "year";
+	type?: "web" | "month" | "day" | "schedule" | "week" | "year" | "mail";
 	date?: string;
 	width?: number;
 	height?: number;
@@ -337,6 +338,7 @@ export interface CodeBlockOptions {
 	showAllDay?: boolean;
 	offset?: number;
 	size?: number;
+	inboxId?: number;
 	// Keep this for backwards compatibility with old code blocks replacing with offset
 	dayOffset?: number;
 }
@@ -368,4 +370,25 @@ export interface ApiRequestData {
 	url: string;
 	method: string;
 	body?: any;
+}
+
+export interface GoogleMessage {
+	url: string;
+	from: string;
+	subject: string;
+}
+
+export interface GoogleMessageHeader {
+	name: string;
+	value: string;
+}
+
+interface GoogleMessagePayload {
+	headers: GoogleMessageHeader[];
+}
+
+export interface GoogleMessageRaw {
+	id: string;
+	threadId: string;
+	payload: GoogleMessagePayload
 }
