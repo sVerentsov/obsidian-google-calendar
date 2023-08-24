@@ -135,7 +135,7 @@
 			{/each}
 		{/if}
 		<div class="gcal-stop-overflow">
-			<TimeLineHourText hourRange={codeBlockOptions.hourRange} />
+			<TimeLineHourText hourRange={codeBlockOptions.hourRange} height={codeBlockOptions?.height}/>
 		</div>
 		{#each getDatesToDisplay(date) as day, i}
 			<div class="gcal-stop-overflow">
@@ -148,6 +148,8 @@
 					{day}
 					hourRange={codeBlockOptions.hourRange}
 					{goToEvent}
+					height={codeBlockOptions?.height}
+					width={codeBlockOptions?.width}
 				/>
 			</div>
 		{/each}

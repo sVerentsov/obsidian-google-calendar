@@ -7,6 +7,7 @@
 
     export let height = 700;
     export let hourRange = [0, 24];
+    export let fontSize = height / 50;
 
     const switchHourDisplay = () => {
         hourFormat += 1;
@@ -45,7 +46,7 @@
         on:click={switchHourDisplay}
         on:keypress={switchHourDisplay}
         style:height="{height/24}px"
-        style:font-size="{height/50}px" 
+        style:font-size="min({fontSize}px, small)" 
         >{getHourText(i,hourFormat)}</span>
     {/each}
 </div>
